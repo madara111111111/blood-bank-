@@ -1,0 +1,181 @@
+{% load static %}
+{% load widget_tweaks %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <!-- Bootstrap CSS -->
+    
+    <!-- Font Awesome CSS -->
+    {% comment %} <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.css"> {% endcomment %}
+    <!-- Custom CSS -->
+    
+    <style>
+        body {
+            overflow: hidden; /* Prevent scrolling */
+        }
+        
+        #bg-video {
+            position: absolute;
+             /* Height of navbar */
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 130px); /* Height of navbar and footer */
+            z-index: -1;
+            object-fit: cover;
+        }
+        
+        .video-container {
+            position: absolute
+             /* Height of navbar */
+            bottom: px;
+            left: 0;
+            width: 100%;
+             /* Height of navbar and footer */
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60px; /* Adjust height as needed */
+            z-index: 9999;
+        }
+        
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 70px; /* Adjust height as needed */
+            z-index: 9999;
+        }
+/* Card container */
+.container {
+    padding-top: 50px; /* Adjust the top padding to fit the video */
+}
+
+/* Card styling */
+
+.card {
+    padding: 30px; /* Increased padding */
+    width: 400px; /* Set width to your desired size */
+    height: auto; /* Let height adjust according to content */
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+}
+
+/* Card heading */
+.card-heading h2.title {
+    color: blue;
+    font-weight: bold;
+    margin-bottom: 40px; /* Reduced margin */
+    text-align: center; /* Centered text */
+}
+
+/* Form input fields */
+.form-group label {
+    font-weight: bold;
+    color: #B73239;
+}
+
+.form-control {
+    border-radius: 10px;
+    border-color: #B73239;
+    box-shadow: none;
+}
+
+/* Form submit button */
+.btn-danger {
+    background-color: #B73239;
+    border-color: #B73239;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    width: 100%;
+}
+
+.btn-danger:hover {
+    background-color: #A02D34;
+    border-color: #A02D34;
+}
+
+
+    </style>
+</head>
+<body>
+    
+
+<div class="video-container">
+    <video id="bg-video" autoplay loop>
+        <source src="{% static 'videos/hlw.bg.bg.mp4' %}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
+
+
+    {% include "blood/navbar.html" %}
+
+    <div class="containerr">
+        <div class="row justify-content-center mt-5">
+            <div class="col-lg-66">
+                <div class="cardd border-0 shadow-lg p-4">
+                    <div class="card-headingg text-center">
+                        <h2 class="title">Admin Login</h2>
+                    </div>
+                    <div>
+                    <div class="cardd-bodyy">
+                        <form method="POST">
+                            {% csrf_token %}
+                            <div class="form-groupp">
+                                <label for="username">Username</label>
+                                {% render_field form.username class="form-control" %}
+                            </div>
+                            <div class="form-groupp">
+                                <label for="password">Password</label>
+                                {% render_field form.password class="form-control" %}
+                            </div>
+                            <br>
+                            <div class="form-group text-centerr">
+                                <button class="btn btn-danger btn-block" type="submit">Login</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% include "blood/footer.html" %}
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script>
+        window.onload = function() {
+            var video = document.getElementById('bg-video');
+            var videoRatio = video.videoWidth / video.videoHeight;
+            var windowRatio = window.innerWidth / window.innerHeight;
+            if (windowRatio < videoRatio) {
+                video.style.width = 'auto';
+                video.style.height = '100%';
+            } else {
+                video.style.width = '100%';
+                video.style.height = 'auto';
+            }
+        };
+    </script>
+    
+</body>
+</html>

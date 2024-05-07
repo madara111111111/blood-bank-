@@ -1,0 +1,278 @@
+{% load static %}
+{% load widget_tweaks %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Login</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.css">
+    <!-- Font special for pages-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i"
+        rel="stylesheet">
+    <!-- Main CSS-->
+    <link href="{% static "css/main.css" %}" rel="stylesheet" media="all">
+    <style>
+
+        body {
+            overflow: hidden; /* Prevent scrolling */
+        }
+        
+        .video-container {
+            position: fixed; /* Fixed position */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%; /* Full height */
+            z-index: -1;
+            overflow: hidden; /* Hide overflow */
+        }
+        
+        #bg-video {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            z-index: 9999;
+        }
+        
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            z-index: 9999;
+        }
+        
+        /* Card container */
+        .wrapper {
+            padding-top: 30px;
+            width: 400px;
+            height: auto;
+            border: none;
+            margin: 0 auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            padding: 20px;
+        
+        /* Card styling */
+        .card {
+            padding: 30px;
+            width: 400px;
+            height: auto;
+            border: none;
+            border-radius: 20px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+        }
+        
+        /* Card heading */
+        .card-heading h2.title {
+            color: black;
+            font-weight: bold;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        /* Form input fields */
+        .form-group label {
+            font-weight: bold;
+            color: black;
+        }
+        
+        .form-control {
+            border-radius: 20px;
+            border-color: #e64a27;
+            box-shadow: none;
+        }
+        
+        /* Form submit button */
+        .btn-danger {
+            background-color: #B73239;
+            border-color: #B73239;
+            border-radius: 10px;
+            padding: 10px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+            width: 100%;
+        }
+        
+        .btn-danger:hover {
+            background-color: #A02D34;
+            border-color: #A02D34;
+        }
+        
+        /* Additional card styling */
+        .cardd {
+            background-color: transparent; /* Make the background transparent */
+            position: relative; /* Position for the pseudo-element */
+            border-radius: 15px; /* Same as the card */
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5); /* Black shadow border */
+        }
+        
+        
+        .card-headingg {
+            margin-bottom: 20px;
+        }
+        
+        .card-headingg .title {
+            font-size: 28px;
+            color: blue;
+        }
+        
+        .card-bodyy {
+            font-size: 16px;
+            color: #140200;
+          }
+        
+        .form-roww {
+            margin-bottom: 20px;
+        }
+        
+        .form-roww .namee {
+            font-weight: bold;
+            color: black;
+        }
+        
+        .input-groupp {
+            width: 100%;
+        }
+        
+        .input--style-55 {
+            width: 100%;
+            padding: 10px;
+            border: 0.3px solid black;
+            border-radius: 5px;
+            outline: none;
+        }
+        
+        .btn--radius-22 {   
+            background-color: #eb4034;
+        }
+        
+        .btn--radius-22:hover {
+            background-color: #dc3545; /* Red background on hover */
+            color: white;
+        }
+        
+        .cardd {
+            background-color: transparent; /* Make the background transparent */
+            position: relative; /* Position for the pseudo-element */
+            
+        }
+        
+        .cardd:before {
+            content: "";
+            position: absolute;
+            top: -5px; /* Adjust to cover the border */
+            right: -5px; /* Adjust to cover the border */
+            bottom: -5px; /* Adjust to cover the border */
+            left: -5px; /* Adjust to cover the border */
+            background-image: url('blur-effect.jpg'); /* Background image for the blur effect */
+            background-size: cover;
+            filter: blur(30px);
+            z-index: -1; /* Place it behind the card content */
+            border-radius: 15px; /* Same as the card */
+            
+        }
+        
+        .bg-video {
+            position: fixed;
+            top: 56px;
+            left: 0;
+            width: 100%; /* Set width to 100% */
+            height: calc(100% - 126px); /* Adjusted height for better display */
+            z-index: -1;
+            object-fit: cover;
+        }
+        
+           
+    </style>
+</head>
+
+<body>
+
+    
+    <div class="video-container">
+        <video id="bg-video" autoplay loop>
+            <source src="{% static 'videos/patient.bg.mp4' %}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    {% include "blood/navbar.html" %}
+
+    <div class="wrapper">
+        <div class="wrapper wrapper--w790">
+            <br><br><br>
+            <div class="cardd>
+                <div class="card-headingg">
+                    <h2 class="title">Patient Login</h2>
+                </div>
+                <div class="card-bodyy">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="form-roww">
+                            <div class="namee">Username</div>
+                            <div class="valuee">
+                                <div class="input-groupp">
+                                    {% render_field form.username class="input--style-55" %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-roww">
+                            <div class="namee">Password</div>
+                            <div class="valuee">
+                                <div class="input-groupp">
+                                    {% render_field form.password class="input--style-55" %}
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <button class="btn btn--radius-22" type="submit">Login</button>
+                        </div>
+                    </form>
+                    <br>
+                    <p style="text-align: center;">Does not have an account ? <a style="text-decoration: none;"
+                            href="/patient/patientsignup">Click here to register</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        {% include "blood/footer.html" %}
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

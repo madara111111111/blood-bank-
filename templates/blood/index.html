@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+
+<head>
+    <style>
+        .xyz{
+          margin-bottom: 0px;
+          background-image: url('{% static "image/home-bg.png" %}');
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-size: 100% 100%;
+        }
+      </style>
+      
+</head>
+
+
+<body>
+  {% include "blood/navbar.html" %}
+<br>
+<section id="section-jumbotron" style="margin-bottom: 0px;" class="jumbotron jumbotron-fluid d-flex justify-content-center align-items-center xyz">
+    <div class="container text-center">
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+     
+      
+      <br><br><br><br>
+      
+    </div>  
+  </section>
+
+
+  <div class="jumbotron" style="margin-top: 0px;margin-bottom: 0px;">
+
+    <p class="lead text-center">“A pint of blood, a precious thing,
+      Your blood holds the power to save a life, a gift that transcends words. Consider donating blood today; a simple act of kindness that could mean everything to someone in need. Each drop has the potential to be the lifeline for another. Your generosity can turn despair into hope, illness into recovery. Be the hero someone is desperately waiting for. Join the lifesaving journey and make a difference. Together, we can ensure that no one faces their battles alone. Donate blood, and watch as your compassion transforms into someone's second chance at life.
+      </p>
+    
+    
+  </div>
+  {% include "blood/footer.html" %}
+
+
+</body>
+
+</html>
+<!--
+developed By : Divya ranjan
+
+-->

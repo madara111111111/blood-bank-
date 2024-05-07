@@ -1,0 +1,177 @@
+{% extends 'blood/adminbase.html' %}
+{% block content %}
+<style>
+.card-body {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 1.25rem;
+    background-color: gray;
+}
+</style>
+<br><br>
+<div class="container">
+
+    <div class="row">
+        <div class="col-sm-4">
+          <div class="card bg-light">
+            <div class="card-body">
+                <div class="blood">
+                    <h2>A+ <i class="fas fa-syringe"></i></h2>
+                </div><br><br>
+                <div>
+                    {{A1.unit}}
+                </div>                            
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <div class="blood">
+                        <h2>B+ <i class="fas fa-syringe"></i></h2>
+                    </div><br><br>
+                    <div>
+                      {{B1.unit}}
+                    </div>                            
+                </div>
+              </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <div class="blood">
+                        <h2>O+ <i class="fas fa-syringe"></i></h2>
+                    </div><br><br>
+                    <div>
+                      {{O1.unit}}
+                    </div>                            
+                </div>
+              </div>
+          </div>
+      </div>
+  
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="card bg-light">
+            <div class="card-body">
+                <div class="blood">
+                    <h2>A- <i class="fas fa-syringe"></i></h2>
+                </div><br><br>
+                <div>
+                  {{A2.unit}}
+                </div>                            
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <div class="blood">
+                        <h2>B- <i class="fas fa-syringe"></i></h2>
+                    </div><br><br>
+                    <div>
+                      {{B2.unit}}
+                    </div>                            
+                </div>
+              </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <div class="blood">
+                        <h2>O- <i class="fas fa-syringe"></i></h2>
+                    </div><br><br>
+                    <div>
+                      {{O2.unit}}
+                    </div>                            
+                </div>
+              </div>
+          </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="card bg-light">
+            <div class="card-body">
+                <div class="blood">
+                    <h2>AB+ <i class="fas fa-syringe"></i></h2>
+                </div><br><br>
+                <div>
+                  {{AB1.unit}}
+                </div>                            
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <div class="blood">
+                        <h2>AB- <i class="fas fa-syringe"></i></h2>
+                    </div><br><br>
+                    <div>
+                      {{AB2.unit}}
+                    </div>                            
+                </div>
+              </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <div class="blood">
+                        <i class="fas fa-users"></i>
+                    </div><br>
+                    <div>
+                        Total Donors <br>
+                        {{totaldonors}}
+                    </div>                            
+                </div>
+              </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="card bg-light">
+            <div class="card-body">
+                <div class="blood">
+                    <i class="fas fa-table"></i>
+                </div><br>
+                <div>
+                    Total Requests <br>
+                    {{totalrequest}}
+                </div>                            
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <div class="blood">
+                        <i class="fas fa-check"></i>
+                    </div><br>
+                    <div>
+                        Approved Requests <br>
+                        {{totalapprovedrequest}}
+                    </div>                            
+                </div>
+              </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="card bg-light">
+              <div class="card-body">
+                  <div class="blood">
+                      <i class="fas fa-tint"></i>
+                  </div><br>
+                  <div>
+                      Total Blood Unit (in ml) <br>
+                      {{totalbloodunit}}
+                  </div>                            
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}
